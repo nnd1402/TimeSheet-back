@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "ecdce7c3-42aa-4cb3-a758-d8ad84a68b00": {
+      "ProjectGuid": "ecdce7c3-42aa-4cb3-a758-d8ad84a68b00",
+      "DisplayName": "TimeSheet.Entities",
+      "ColorIndex": 0
+    },
+    "fe0dd996-5d36-4f2e-b7d0-f7fa327bc7cb": {
+      "ProjectGuid": "fe0dd996-5d36-4f2e-b7d0-f7fa327bc7cb",
+      "DisplayName": "TimeSheet.Service",
+      "ColorIndex": 1
+    },
+    "6962461e-9c00-4149-934b-a891c3ec369f": {
+      "ProjectGuid": "6962461e-9c00-4149-934b-a891c3ec369f",
+      "DisplayName": "TimeSheet.Service.Contract",
+      "ColorIndex": 2
+    },
+    "3decd97f-2f1d-4595-8197-d7eb7af0ab22": {
+      "ProjectGuid": "3decd97f-2f1d-4595-8197-d7eb7af0ab22",
+      "DisplayName": "TimeSheet.Console",
+      "ColorIndex": 3
+    },
+    "53db6b88-9687-4fd1-8048-e50ff243a1de": {
+      "ProjectGuid": "53db6b88-9687-4fd1-8048-e50ff243a1de",
+      "DisplayName": "TimeSheet.Repository",
+      "ColorIndex": 4
+    },
+    "72fd0c60-8bcc-4302-81c0-a8fbd14ff73e": {
+      "ProjectGuid": "72fd0c60-8bcc-4302-81c0-a8fbd14ff73e",
+      "DisplayName": "TimeSheet.Repository.Contract",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}

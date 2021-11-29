@@ -1,0 +1,15 @@
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\TimeSheet.Entities.deps.json
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\TimeSheet.Entities.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\ref\TimeSheet.Entities.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\TimeSheet.Entities.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.AssemblyInfoInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.AssemblyInfo.cs
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.csproj.CoreCompileInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\ref\TimeSheet.Entities.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.csproj.AssemblyReference.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\TimeSheet.Service.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\bin\Debug\net5.0\TimeSheet.Service.Contract.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Entities\obj\Debug\net5.0\TimeSheet.Entities.csproj.CopyComplete
