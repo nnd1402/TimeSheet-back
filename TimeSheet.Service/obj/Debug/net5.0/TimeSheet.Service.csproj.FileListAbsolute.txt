@@ -22,3 +22,5 @@ C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\obj\Debug\net5.0\TimeShee
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\obj\Debug\net5.0\ref\TimeSheet.Service.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\obj\Debug\net5.0\TimeSheet.Service.pdb
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\obj\Debug\net5.0\TimeSheet.Service.genruntimeconfig.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\bin\Debug\net5.0\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Service\bin\Debug\net5.0\TimeSheet.Contract.pdb

@@ -1,0 +1,15 @@
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.csproj.AssemblyReference.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.AssemblyInfoInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.AssemblyInfo.cs
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.csproj.CoreCompileInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\TimeSheet.Contract.deps.json
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\ref\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\TimeSheet.Contract.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.csproj.CopyComplete
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\ref\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Contract\obj\Debug\net5.0\TimeSheet.Contract.pdb

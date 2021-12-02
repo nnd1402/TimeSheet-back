@@ -8,7 +8,7 @@ namespace TimeSheet.Contract
     {
         IEnumerable<TimeSheetEntryDTO> GetAll();
         TimeSheetEntryDTO GetById(int id);
-        IEnumerable<TimeSheetEntryDTO> InsertMany(IEnumerable<TimeSheetEntryDTO> entries)
+        IEnumerable<TimeSheetEntryDTO> InsertMany(IEnumerable<TimeSheetEntryDTO> entries);
         void Update(DateTime date, IEnumerable<TimeSheetEntryDTO> entries);
         void Delete(int id);
     }

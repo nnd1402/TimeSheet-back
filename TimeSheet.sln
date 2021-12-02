@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeSheet.Console", "TimeSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSheet.Contract", "TimeSheet.Contract\TimeSheet.Contract.csproj", "{F307D0EB-073F-45EB-BBE9-54F08F1B1E1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSheet.API", "TimeSheet.API\TimeSheet.API.csproj", "{175D1B4F-5F4F-4C4F-B715-99D74C415D56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F307D0EB-073F-45EB-BBE9-54F08F1B1E1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F307D0EB-073F-45EB-BBE9-54F08F1B1E1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F307D0EB-073F-45EB-BBE9-54F08F1B1E1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{175D1B4F-5F4F-4C4F-B715-99D74C415D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{175D1B4F-5F4F-4C4F-B715-99D74C415D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{175D1B4F-5F4F-4C4F-B715-99D74C415D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{175D1B4F-5F4F-4C4F-B715-99D74C415D56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
