@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
 using TimeSheet.Repository.Repositories;
+using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.Service
 {
-    public class CategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly CategoryRepository categoryRepository;
 
@@ -15,89 +17,64 @@ namespace TimeSheet.Service
             this.categoryRepository = categoryRepository;
         }
 
-        public void Delete(int id)
-        {
-            var category = categoryRepository.GetById(id);
-            if (category == null)
-            {
-                throw new NullReferenceException();
-            } else
-            {
-                categoryRepository.Delete(id);
-                categoryRepository.Save();
-            }
-        }
-
         public IEnumerable<CategoryDTO> GetAll()
         {
-            ICollection<CategoryDTO> result = new List<CategoryDTO>();
             var categories = categoryRepository.GetAll();
-
-            foreach (Category category in categories)
-            {
-                var categoryDTO = Category.ConvertToDTO(category);
-                result.Add(categoryDTO);
-            }
+            var insertedEntities = categoryRepository.AddRange(categories);
+            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
+            categoryRepository.Save();
             return result;
         }
-
         public CategoryDTO GetById(int id)
         {
             var category = categoryRepository.GetById(id);
             if (category == null)
             {
-                throw new NullReferenceException();
+                throw new NotFoundException();
             }
-            var categoryDTO = Category.ConvertToDTO(category);
+            var categoryDTO = category.ConvertToDTO();
 
             return categoryDTO;
         }
-
-        public bool Insert(CategoryDTO categoryDTO)
+        public CategoryDTO Insert(CategoryDTO categoryDTO)
         {
-            bool status;
-            try
+            if (categoryDTO == null)
             {
-                var category = Category.ConvertFromDTO(categoryDTO);
-                if (category == null)
-                {
-                    throw new NullReferenceException();
-                }  else
-                {
-                    categoryRepository.Insert(category);
-                    categoryRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Category must be provided");
             }
-            catch(Exception)
+            if (string.IsNullOrEmpty(categoryDTO.Name))
             {
-                status = false;
+                throw new ValidationException("Name cannot be empty");
             }
-            return status;
+            var dtoToEntity = new Category(categoryDTO);
+            var dbCategory = categoryRepository.Insert(dtoToEntity);
+            categoryRepository.Save();
+            var result = dbCategory.ConvertToDTO();
+            return result;
         }
-
-        public bool Update(int id, CategoryDTO categoryDTO)
+        public void Update(int id, CategoryDTO categoryDTO)
         {
-            bool status;
-            try
+            if (categoryDTO == null)
             {
-                var category = Category.ConvertFromDTO(categoryDTO);
-                category = categoryRepository.GetById(id);
-                if (id == 0 || category == null)
-                {
-                    throw new NullReferenceException();
-                } else
-                {
-                    categoryRepository.Update(id, category);
-                    categoryRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Category must be provided");
             }
-            catch (Exception) 
-            { 
-                status = false;
+            if (string.IsNullOrEmpty(categoryDTO.Name))
+            {
+                throw new ValidationException("Name cannot be empty");
             }
-            return status;
+            var dtoToEntity = new Category(categoryDTO);
+            categoryRepository.Update(id, dtoToEntity);
+            categoryRepository.Save();
+        }
+        public void Delete(int id)
+        {
+            var category = categoryRepository.GetById(id);
+            if (category == null)
+            {
+                throw new NotFoundException();
+            }
+            categoryRepository.Delete(id);
+            categoryRepository.Save();
         }
     }
 }

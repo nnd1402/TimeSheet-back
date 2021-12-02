@@ -10,22 +10,19 @@ namespace TimeSheet.Entities
 
         public ICollection<Client> Clients { get; set; }
 
-        public static CountryDTO ConvertToDTO(Country country)
+        public CountryDTO ConvertToDTO()
         {
             return new CountryDTO
             {
-                Id = country.Id,
-                Name = country.Name
+                Id = this.Id,
+                Name = this.Name
             };
         }
 
-        public static Country ConvertFromDTO(CountryDTO countryDTO)
+        public Country (CountryDTO countryDTO)
         {
-            return new Country
-            {
-                Id = countryDTO.Id,
-                Name = countryDTO.Name,
-            };
+            Id = countryDTO.Id;
+            Name = countryDTO.Name;
         }
     }
 }

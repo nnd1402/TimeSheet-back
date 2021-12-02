@@ -28,34 +28,31 @@ namespace TimeSheet.Entities
 
         public double OverTime { get; set; }
 
-        public static TimeSheetEntryDTO ConvertToDTO(TimeSheetEntry timeSheetEntry)
+        public TimeSheetEntryDTO ConvertToDTO()
         {
             return new TimeSheetEntryDTO
             {
-                Id = timeSheetEntry.Id,
-                UserId = timeSheetEntry.UserId,
-                ProjectId = timeSheetEntry.ProjectId,
-                CategoryId = timeSheetEntry.CategoryId,
-                Description = timeSheetEntry.Description,
-                Date = timeSheetEntry.Date,
-                Time = timeSheetEntry.Time,
-                OverTime = timeSheetEntry.OverTime
+                Id = this.Id,
+                UserId = this.UserId,
+                ProjectId = this.ProjectId,
+                CategoryId = this.CategoryId,
+                Description = this.Description,
+                Date = this.Date,
+                Time = this.Time,
+                OverTime = this.OverTime
             };
         }
 
-        public static TimeSheetEntry ConvertFromDTO(TimeSheetEntryDTO timeSheetEntryDTO)
+        public TimeSheetEntry (TimeSheetEntryDTO timeSheetEntryDTO)
         {
-            return new TimeSheetEntry
-            {
-                Id = timeSheetEntryDTO.Id,
-                UserId = timeSheetEntryDTO.UserId,
-                ProjectId = timeSheetEntryDTO.ProjectId,
-                CategoryId = timeSheetEntryDTO.CategoryId,
-                Description = timeSheetEntryDTO.Description,
-                Date = timeSheetEntryDTO.Date,
-                Time = timeSheetEntryDTO.Time,
-                OverTime = timeSheetEntryDTO.OverTime
-            };
+            Id = timeSheetEntryDTO.Id;
+            UserId = timeSheetEntryDTO.UserId;
+            ProjectId = timeSheetEntryDTO.ProjectId;
+            CategoryId = timeSheetEntryDTO.CategoryId;
+            Description = timeSheetEntryDTO.Description;
+            Date = timeSheetEntryDTO.Date;
+            Time = timeSheetEntryDTO.Time;
+            OverTime = timeSheetEntryDTO.OverTime;
         }
     }
 }

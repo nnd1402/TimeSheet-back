@@ -4,6 +4,64 @@
     "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj": {}
   },
   "projects": {
+    "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj",
+        "projectName": "TimeSheet.Contract",
+        "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj",
+        "packagesPath": "C:\\Users\\nesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\nesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj": {
+                "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\TimeSheet.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -222,12 +280,6 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[10.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -271,6 +323,9 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj": {
+                "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj"
+              },
               "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj": {
                 "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj"
               },

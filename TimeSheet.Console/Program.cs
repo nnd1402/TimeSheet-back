@@ -38,8 +38,8 @@ namespace TimeSheet.Console
             List<Role> roles = roleRepository.GetAll().ToList();
             RoleDTO role = new RoleDTO
             {
-                Id = 8,
-                Name = "Role23"
+                Id = 1,
+                Name = "Role"
             };
 
             //roleService.Insert(role);
@@ -82,9 +82,9 @@ namespace TimeSheet.Console
             ClientDTO client = new ClientDTO
             {
                 Id = 1,
-                Name = "POWERWOLF",
-                Address = "Client3 Street",
-                City = "Client3 City",
+                Name = "Client1",
+                Address = "Client1 Street",
+                City = "Client1 City",
                 ZipCode = 21000,
                 CountryId = 1
             };

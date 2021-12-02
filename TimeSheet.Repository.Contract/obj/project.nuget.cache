@@ -1,12 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AZsoALs+lfmyXnzd7e1SqlKtpLkX2TQAEmHnq91h+AgB7foJO0v9CjlNlB4L6Sx2vBZiVulPrm2W5tuQUou3FA==",
+  "dgSpecHash": "RY0KkhgKz51zQJ8CfuBrc7Mvj4bzKUchxpwL5KUUJXQ9upfbCcV9DuuECWqFuc1NDI4/SedkQsoy/nHwFlVdnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository.Contract\\TimeSheet.Repository.Contract.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\nesa\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
-    "C:\\Users\\nesa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
-    "C:\\Users\\nesa\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

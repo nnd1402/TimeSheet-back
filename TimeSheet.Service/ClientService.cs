@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
 using TimeSheet.Repository.Repositories;
+using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.Service
 {
-    public class ClientService
+    public class ClientService : IClientService
     {
         private readonly ClientRepository clientRepository;
 
@@ -15,92 +17,72 @@ namespace TimeSheet.Service
             this.clientRepository = clientRepository;
         }
 
-        public void Delete(int id)
-        {
-            var client = clientRepository.GetById(id);
-            if (client == null)
-            {
-                throw new NullReferenceException();
-            }
-            else
-            {
-                clientRepository.Delete(id);
-                clientRepository.Save();
-            }
-        }
-
         public IEnumerable<ClientDTO> GetAll()
         {
-            ICollection<ClientDTO> result = new List<ClientDTO>();
             var clients = clientRepository.GetAll();
-
-            foreach (Client client in clients)
-            {
-                var clientDTO = Client.ConvertToDTO(client);
-                result.Add(clientDTO);
-            }
+            var insertedEntities = clientRepository.AddRange(clients);
+            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
+            clientRepository.Save();
             return result;
         }
-
         public ClientDTO GetById(int id)
         {
             var client = clientRepository.GetById(id);
             if (client == null)
             {
-                throw new NullReferenceException();
+                throw new NotFoundException();
             }
-            var clientDTO = Client.ConvertToDTO(client);
+            var clientDTO = client.ConvertToDTO();
 
             return clientDTO;
         }
-
-        public bool Insert(ClientDTO clientDTO)
+        public ClientDTO Insert(ClientDTO clientDTO)
         {
-            bool status;
-            try
+            if (string.IsNullOrEmpty(clientDTO.Name))
             {
-                var client = Client.ConvertFromDTO(clientDTO);
-                if (client == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    clientRepository.Insert(client);
-                    clientRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Name cannot be empty");
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(clientDTO.Address))
             {
-                status = false;
+                throw new ValidationException("Address cannot be empty");
             }
-            return status;
+            if (string.IsNullOrEmpty(clientDTO.City))
+            {
+                throw new ValidationException("City cannot be empty");
+            }
+            var dtoToEntity = new Client(clientDTO);
+            var dbClient = clientRepository.Insert(dtoToEntity);
+            clientRepository.Save();
+            var result = dbClient.ConvertToDTO();
+            return result;
         }
-
-        public bool Update(int id, ClientDTO clientDTO)
+        public void Update(int id, ClientDTO clientDTO)
         {
-            bool status;
-            try
+            if (string.IsNullOrEmpty(clientDTO.Name))
             {
-                var client = Client.ConvertFromDTO(clientDTO);
-                client = clientRepository.GetById(id);
-                if (id == 0 || client == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    clientRepository.Update(id, client);
-                    clientRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Name cannot be empty");
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(clientDTO.Address))
             {
-                status = false;
+                throw new ValidationException("Address cannot be empty");
             }
-            return status;
+            if (string.IsNullOrEmpty(clientDTO.City))
+            {
+                throw new ValidationException("City cannot be empty");
+            }
+            var dtoToEntity = new Client(clientDTO);
+            clientRepository.Update(id, dtoToEntity);
+            clientRepository.Save();
+        }
+        public void Delete(int id)
+        {
+            var client = clientRepository.GetById(id);
+            if (client == null)
+            {
+                throw new NotFoundException();
+            }
+            clientRepository.Delete(id);
+            clientRepository.Save();
         }
     }
 }

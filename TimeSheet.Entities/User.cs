@@ -26,52 +26,31 @@ namespace TimeSheet.Entities
 
         public ICollection<UserOnProject> UsersOnProjects { get; set; }
 
-        public static UserDTO ConvertToDTO(User user)
+        public UserDTO ConvertToDTO()
         {
             return new UserDTO
             {
-                Id = user.Id,
-                Name = user.Name,
-                Username = user.Username,
-                Email = user.Email,
-                Password = user.Password,
-                HoursPerWeek = user.HoursPerWeek,
-                Status = user.Status,
-                RoleId = user.RoleId
+                Id = this.Id,
+                Name = this.Name,
+                Username = this.Username,
+                Email = this.Email,
+                Password = this.Password,
+                HoursPerWeek = this.HoursPerWeek,
+                Status = this.Status,
+                RoleId = this.RoleId
             };
         }
 
-        public static User ConvertFromDTO(UserDTO userDTO)
+        public User (UserDTO userDTO)
         {
-            return new User
-            {
-                Id = userDTO.Id,
-                Name = userDTO.Name,
-                Username = userDTO.Username,
-                Email = userDTO.Email,
-                Password = userDTO.Password,
-                HoursPerWeek = userDTO.HoursPerWeek,
-                Status = userDTO.Status,
-                RoleId = userDTO.RoleId
-            };
-        }
-
-        public static UserLogin ConvertoToDTO (User user)
-        {
-            return new UserLogin
-            {
-                Username = user.Username,
-                Password = user.Password
-            };
-        }
-
-        public static User ConvertoFromDTO(UserLogin userLogin)
-        {
-            return new User
-            {
-                Username = userLogin.Username,
-                Password = userLogin.Password
-            };
+            Id = userDTO.Id;
+            Name = userDTO.Name;
+            Username = userDTO.Username;
+            Email = userDTO.Email;
+            Password = userDTO.Password;
+            HoursPerWeek = userDTO.HoursPerWeek;
+            Status = userDTO.Status;
+            RoleId = userDTO.RoleId;
         }
     }
 }

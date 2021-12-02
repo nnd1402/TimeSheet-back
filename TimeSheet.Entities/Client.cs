@@ -19,30 +19,27 @@ namespace TimeSheet.Entities
 
         public ICollection<Project> Projects { get; set; }
 
-        public static ClientDTO ConvertToDTO(Client client)
+        public ClientDTO ConvertToDTO()
         {
             return new ClientDTO
             {
-                Id = client.Id,
-                Name = client.Name,
-                Address = client.Address,
-                City = client.City,
-                ZipCode = client.ZipCode,
-                CountryId = client.CountryId
+                Id = this.Id,
+                Name = this.Name,
+                Address = this.Address,
+                City = this.City,
+                ZipCode = this.ZipCode,
+                CountryId = this.CountryId
             };
         }
 
-        public static Client ConvertFromDTO(ClientDTO clientDTO)
+        public Client (ClientDTO clientDTO)
         {
-            return new Client
-            {
-                Id = clientDTO.Id,
-                Name = clientDTO.Name,
-                Address = clientDTO.Address,
-                City = clientDTO.City,
-                ZipCode = clientDTO.ZipCode,
-                CountryId = clientDTO.CountryId
-            };
+            Id = clientDTO.Id;
+            Name = clientDTO.Name;
+            Address = clientDTO.Address;
+            City = clientDTO.City;
+            ZipCode = clientDTO.ZipCode;
+            CountryId = clientDTO.CountryId;
         }
     }
 }

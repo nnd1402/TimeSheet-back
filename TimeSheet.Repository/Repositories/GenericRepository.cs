@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using TimeSheet.Repository.Contract;
@@ -8,7 +9,7 @@ namespace TimeSheet.Repository.Repositories
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         internal TimeSheetDbContext Context { get; set; }
-        internal DbSet<TEntity> dbSet;
+        protected DbSet<TEntity> dbSet;
 
         public GenericRepository(TimeSheetDbContext context)
         {
@@ -20,14 +21,14 @@ namespace TimeSheet.Repository.Repositories
         {
             return dbSet.ToList();
         }
-
-        public TEntity GetById(int id)
+     
+        public TEntity GetById<TId>(TId id)
         {
             return dbSet.Find(id);
         }
-        public void Insert(TEntity obj)
+        public TEntity Insert(TEntity obj)
         {
-            dbSet.Add(obj);
+            return dbSet.Add(obj);
         }
         public void Update(int id, TEntity obj)
         {
@@ -43,6 +44,18 @@ namespace TimeSheet.Repository.Repositories
         public void Save()
         {
             Context.SaveChanges();
+        }
+        public IEnumerable<TEntity> Search(Func<TEntity, bool> predicate)
+        {
+            return dbSet.Where(predicate);
+        }
+        public IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities)
+        {
+           return dbSet.AddRange(entities);
+        }
+        public void RemoveRange(IEnumerable<TEntity> entities)
+        {
+            dbSet.RemoveRange(entities);
         }
     }
 }

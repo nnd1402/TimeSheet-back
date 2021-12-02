@@ -1,4 +1,7 @@
-﻿using TimeSheet.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using TimeSheet.Entities;
 using TimeSheet.Repository.Contract;
 
 namespace TimeSheet.Repository.Repositories
@@ -7,6 +10,11 @@ namespace TimeSheet.Repository.Repositories
     {
         public TimeSheetEntryRepository(TimeSheetDbContext context) : base(context)
         {
+        }
+        public IEnumerable<TimeSheetEntry> GetByDate(DateTime date)
+        {
+           var result = dbSet.Where(e => e.Date == date).ToList();
+           return result;
         }
     }
 }

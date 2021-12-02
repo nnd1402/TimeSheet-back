@@ -10,22 +10,19 @@ namespace TimeSheet.Entities
 
         public ICollection<User> Users { get; set; }
 
-        public static RoleDTO ConvertToDTO(Role role)
+        public RoleDTO ConvertToDTO()
         {
             return new RoleDTO
             {
-                Id = role.Id,
-                Name = role.Name
+                Id = this.Id,
+                Name = this.Name
             };
         }
 
-        public static Role ConvertFromDTO(RoleDTO roleDTO)
+        public Role (RoleDTO roleDTO)
         {
-            return new Role
-            {
-                Id = roleDTO.Id,
-                Name = roleDTO.Name
-            };
+            Id = roleDTO.Id;
+            Name = roleDTO.Name;
         }
     }
 }

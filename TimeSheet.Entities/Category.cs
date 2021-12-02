@@ -10,22 +10,19 @@ namespace TimeSheet.Entities
 
         public ICollection<TimeSheetEntry> TimeSheetEntries { get; set; }
 
-        public static CategoryDTO ConvertToDTO(Category category)
+        public CategoryDTO ConvertToDTO()
         {
             return new CategoryDTO
             {
-                Id = category.Id,
-                Name = category.Name
+                Id = this.Id,
+                Name = this.Name
             };
         }
 
-        public static Category ConvertFromDTO(CategoryDTO categoryDTO)
+        public Category(CategoryDTO categoryDTO)
         {
-            return new Category
-            {
-                Id = categoryDTO.Id,
-                Name = categoryDTO.Name,
-            };
+            Id = categoryDTO.Id;
+            Name = categoryDTO.Name;
         }
     }
 

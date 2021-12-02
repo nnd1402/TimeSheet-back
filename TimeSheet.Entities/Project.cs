@@ -18,26 +18,23 @@ namespace TimeSheet.Entities
 
         public ICollection<UserOnProject> UsersOnProjects { get; set; }
 
-        public static ProjectDTO ConvertToDTO(Project project)
+        public ProjectDTO ConvertToDTO()
         {
             return new ProjectDTO
             {
-                Id = project.Id,
-                Name = project.Name,
-                Description = project.Description,
-                ClientId = project.ClientId
+                Id = this.Id,
+                Name = this.Name,
+                Description = this.Description,
+                ClientId = this.ClientId
             };
         }
 
-        public static Project ConvertFromDTO(ProjectDTO projectDTO)
+        public Project (ProjectDTO projectDTO)
         {
-            return new Project
-            {
-                Id = projectDTO.Id,
-                Name = projectDTO.Name,
-                Description = projectDTO.Description,
-                ClientId = projectDTO.ClientId
-            };
+            Id = projectDTO.Id;
+            Name = projectDTO.Name;
+            Description = projectDTO.Description;
+            ClientId = projectDTO.ClientId;
         }
 
     }

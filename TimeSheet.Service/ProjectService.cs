@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
 using TimeSheet.Repository.Repositories;
+using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.Service
 {
-    public class ProjectService
+    public class ProjectService : IProjectService
     {
         private readonly ProjectRepository projectRepository;
 
@@ -14,92 +16,66 @@ namespace TimeSheet.Service
         {
             this.projectRepository = projectRepository;
         }
-        public void Delete(int id)
-        {
-            var project = projectRepository.GetById(id);
-            if (project == null)
-            {
-                throw new NullReferenceException();
-            }
-            else
-            {
-                projectRepository.Delete(id);
-                projectRepository.Save();
-            }
-        }
 
         public IEnumerable<ProjectDTO> GetAll()
         {
-            ICollection<ProjectDTO> result = new List<ProjectDTO>();
-            IEnumerable<Project> projects = projectRepository.GetAll();
-
-            foreach (Project project in projects)
-            {
-                var projectDTO = Project.ConvertToDTO(project);
-                result.Add(projectDTO);
-            }
+            var projects = projectRepository.GetAll();
+            var insertedEntities = projectRepository.AddRange(projects);
+            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
+            projectRepository.Save();
             return result;
         }
-
         public ProjectDTO GetById(int id)
         {
             var project = projectRepository.GetById(id);
             if (project == null)
             {
-                throw new NullReferenceException();
+                throw new NotFoundException();
             }
-            var projectDTO = Project.ConvertToDTO(project);
+            var projectDTO = project.ConvertToDTO();
 
             return projectDTO;
         }
-
-        public bool Insert(ProjectDTO projectDTO)
+        public ProjectDTO Insert(ProjectDTO projectDTO)
         {
-            bool status;
-            try
+            if (string.IsNullOrEmpty(projectDTO.Description))
             {
-                var project = Project.ConvertFromDTO(projectDTO);
-                if (project == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    projectRepository.Insert(project);
-                    projectRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Description cannot be empty");
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(projectDTO.Name))
             {
-                status = false;
+                throw new ValidationException("Name cannot be empty");
             }
-            return status;
+
+            var dtoToEntity = new Project(projectDTO);
+            var dbProject = projectRepository.Insert(dtoToEntity);
+            projectRepository.Save();
+            var result = dbProject.ConvertToDTO();
+            return result;
         }
-
-        public bool Update(int id, ProjectDTO projectDTO)
+        public void Update(int id, ProjectDTO projectDTO)
         {
-            bool status;
-            try
+            if (string.IsNullOrEmpty(projectDTO.Description))
             {
-                var project = Project.ConvertFromDTO(projectDTO);
-                project = projectRepository.GetById(id);
-                if (id == 0 || project == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    projectRepository.Update(id, project);
-                    projectRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Description cannot be empty");
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(projectDTO.Name))
             {
-                status = false;
+                throw new ValidationException("Name cannot be empty");
             }
-            return status;
+            var dtoToEntity = new Project(projectDTO);
+            projectRepository.Update(id, dtoToEntity);
+            projectRepository.Save();
+        }
+        public void Delete(int id)
+        {
+            var project = projectRepository.GetById(id);
+            if (project == null)
+            {
+                throw new NotFoundException();
+            }
+            projectRepository.Delete(id);
+            projectRepository.Save();
         }
     }
 }

@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
 using TimeSheet.Repository.Repositories;
+using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.Service
 {
-    public class CountryService
+    public class CountryService : ICountryService
     {
         private readonly CountryRepository countryRepository;
 
@@ -15,92 +17,60 @@ namespace TimeSheet.Service
             this.countryRepository = countryRepository;
         }
 
-        public void Delete(int id)
-        {
-            var country = countryRepository.GetById(id);
-            if (country == null)
-            {
-                throw new NullReferenceException();
-            }
-            else
-            {
-                countryRepository.Delete(id);
-                countryRepository.Save();
-            }
-        }
-
         public IEnumerable<CountryDTO> GetAll()
         {
-            ICollection<CountryDTO> result = new List<CountryDTO>();
             var countries = countryRepository.GetAll();
-
-            foreach (Country country in countries)
-            {
-                var countryDTO = Country.ConvertToDTO(country);
-                result.Add(countryDTO);
-            }
+            var insertedEntities = countryRepository.AddRange(countries);
+            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
+            countryRepository.Save();
             return result;
         }
-
         public CountryDTO GetById(int id)
         {
             var country = countryRepository.GetById(id);
             if (country == null)
             {
-                throw new NullReferenceException();
+                throw new NotFoundException();
             }
-            var countryDTO = Country.ConvertToDTO(country);
+            var countryDTO = country.ConvertToDTO();
 
             return countryDTO;
         }
-
-        public bool Insert(CountryDTO countryDTO)
+        public CountryDTO Insert(CountryDTO countryDTO)
         {
-            bool status;
-            try
+            if (countryDTO == null)
             {
-                var country = Country.ConvertFromDTO(countryDTO);
-                if (country == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    countryRepository.Insert(country);
-                    countryRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Country must be provided");
             }
-            catch (Exception)
+            if (string.IsNullOrEmpty(countryDTO.Name))
             {
-                status = false;
+                throw new ValidationException("Name cannot be empty");
             }
-            return status;
+            var dtoToEntity = new Country(countryDTO);
+            var dbCountry = countryRepository.Insert(dtoToEntity);
+            countryRepository.Save();
+            var result = dbCountry.ConvertToDTO();
+            return result;
         }
-
-        public bool Update(int id, CountryDTO countryDTO)
+        public void Update(int id, CountryDTO countryDTO)
         {
-            bool status;
-            try
+            if (string.IsNullOrEmpty(countryDTO.Name))
             {
-                var country = Country.ConvertFromDTO(countryDTO);
-                country = countryRepository.GetById(id);
-                if (id == 0 || country == null)
-                {
-                    throw new NullReferenceException();
-                }
-                else
-                {
-                    countryRepository.Update(id, country);
-                    countryRepository.Save();
-                }
-                status = true;
+                throw new ValidationException("Name cannot be empty");
             }
-            catch (Exception)
+            var dtoToEntity = new Country(countryDTO);
+            countryRepository.Update(id, dtoToEntity);
+            countryRepository.Save();
+        }
+        public void Delete(int id)
+        {
+            var country = countryRepository.GetById(id);
+            if (country == null)
             {
-                status = false;
+                throw new NotFoundException();
             }
-            return status;
+            countryRepository.Delete(id);
+            countryRepository.Save();
         }
     }
 }

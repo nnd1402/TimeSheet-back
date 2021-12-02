@@ -1,0 +1,12 @@
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\bin\Debug\net5.0\TimeSheet.Exceptions.deps.json
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\bin\Debug\net5.0\TimeSheet.Exceptions.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\bin\Debug\net5.0\ref\TimeSheet.Exceptions.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\bin\Debug\net5.0\TimeSheet.Exceptions.pdb
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.csproj.AssemblyReference.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.AssemblyInfoInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.AssemblyInfo.cs
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.csproj.CoreCompileInputs.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\ref\TimeSheet.Exceptions.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Exceptions\obj\Debug\net5.0\TimeSheet.Exceptions.pdb

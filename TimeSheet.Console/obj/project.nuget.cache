@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "FAnYOD1NHxWALQy3EGDB4nSLx3A0sGK0fNN5JUxjha4aZANFfP1ZTcuOgpFpCzKfiLlrJE0G3wVkkLw1i8XyUw==",
+  "dgSpecHash": "Ci1ia8sBl978LQOrrQ3e93Xd5FT9e8u094Tm3SgICMJOYafpqQLDSlwrsiwxk3i49ikgBs1n/Kosw2h+feb3cg==",
   "success": true,
   "projectFilePath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Console\\TimeSheet.Console.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\nesa\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
@@ -19,7 +18,6 @@
     "C:\\Users\\nesa\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\system.data.sqlclient\\4.8.1\\system.data.sqlclient.4.8.1.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
-    "C:\\Users\\nesa\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.7.0\\system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
