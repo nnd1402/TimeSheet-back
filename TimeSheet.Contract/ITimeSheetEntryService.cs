@@ -11,5 +11,7 @@ namespace TimeSheet.Contract
         IEnumerable<TimeSheetEntryDTO> InsertMany(IEnumerable<TimeSheetEntryDTO> entries);
         void Update(DateTime date, IEnumerable<TimeSheetEntryDTO> entries);
         void Delete(int id);
+
+        IEnumerable<TimeSheetEntryDTO> GetByDate(DateTime date);
     }
 }

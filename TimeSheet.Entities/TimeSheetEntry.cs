@@ -28,6 +28,11 @@ namespace TimeSheet.Entities
 
         public double OverTime { get; set; }
 
+        public TimeSheetEntry()
+        {
+
+        }
+
         public TimeSheetEntryDTO ConvertToDTO()
         {
             return new TimeSheetEntryDTO

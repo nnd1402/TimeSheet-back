@@ -8,13 +8,8 @@ namespace TimeSheet.Repository.Repositories
 {
     public class TimeSheetEntryRepository : GenericRepository<TimeSheetEntry>, ITimeSheetEntryRepository
     {
-        public TimeSheetEntryRepository(TimeSheetDbContext context) : base(context)
-        {
-        }
-        public IEnumerable<TimeSheetEntry> GetByDate(DateTime date)
-        {
-           var result = dbSet.Where(e => e.Date == date).ToList();
-           return result;
-        }
+        //public TimeSheetEntryRepository(TimeSheetDbContext context) : base(context)
+        //{
+        //}
     }
 }

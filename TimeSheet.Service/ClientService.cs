@@ -3,6 +3,7 @@ using System.Linq;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
+using TimeSheet.Repository.Contract;
 using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
@@ -10,24 +11,23 @@ namespace TimeSheet.Service
 {
     public class ClientService : IClientService
     {
-        private readonly ClientRepository clientRepository;
+        private readonly IClientRepository _clientRepository;
 
-        public ClientService(ClientRepository clientRepository)
+        public ClientService(IClientRepository clientRepository)
         {
-            this.clientRepository = clientRepository;
+            this._clientRepository = clientRepository;
         }
 
         public IEnumerable<ClientDTO> GetAll()
         {
-            var clients = clientRepository.GetAll();
-            var insertedEntities = clientRepository.AddRange(clients);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            clientRepository.Save();
+            var clients = _clientRepository.GetAll();
+            var result = clients.ToList().ConvertAll(e => e.ConvertToDTO());
+            _clientRepository.Save();
             return result;
         }
         public ClientDTO GetById(int id)
         {
-            var client = clientRepository.GetById(id);
+            var client = _clientRepository.GetById(id);
             if (client == null)
             {
                 throw new NotFoundException();
@@ -51,13 +51,18 @@ namespace TimeSheet.Service
                 throw new ValidationException("City cannot be empty");
             }
             var dtoToEntity = new Client(clientDTO);
-            var dbClient = clientRepository.Insert(dtoToEntity);
-            clientRepository.Save();
+            var dbClient = _clientRepository.Insert(dtoToEntity);
+            _clientRepository.Save();
             var result = dbClient.ConvertToDTO();
             return result;
         }
         public void Update(int id, ClientDTO clientDTO)
         {
+            var client = _clientRepository.GetById(id);
+            if (client == null)
+            {
+                throw new NotFoundException();
+            }
             if (string.IsNullOrEmpty(clientDTO.Name))
             {
                 throw new ValidationException("Name cannot be empty");
@@ -71,18 +76,18 @@ namespace TimeSheet.Service
                 throw new ValidationException("City cannot be empty");
             }
             var dtoToEntity = new Client(clientDTO);
-            clientRepository.Update(id, dtoToEntity);
-            clientRepository.Save();
+            _clientRepository.Update(id, dtoToEntity);
+            _clientRepository.Save();
         }
         public void Delete(int id)
         {
-            var client = clientRepository.GetById(id);
+            var client = _clientRepository.GetById(id);
             if (client == null)
             {
                 throw new NotFoundException();
             }
-            clientRepository.Delete(id);
-            clientRepository.Save();
+            _clientRepository.Delete(id);
+            _clientRepository.Save();
         }
     }
 }

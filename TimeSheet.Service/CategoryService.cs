@@ -3,6 +3,7 @@ using System.Linq;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
+using TimeSheet.Repository.Contract;
 using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
@@ -10,24 +11,23 @@ namespace TimeSheet.Service
 {
     public class CategoryService : ICategoryService
     {
-        private readonly CategoryRepository categoryRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryService(CategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository)
         {
-            this.categoryRepository = categoryRepository;
+            this._categoryRepository = categoryRepository;
         }
 
         public IEnumerable<CategoryDTO> GetAll()
         {
-            var categories = categoryRepository.GetAll();
-            var insertedEntities = categoryRepository.AddRange(categories);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            categoryRepository.Save();
+            var categories = _categoryRepository.GetAll();
+            var result = categories.ToList().ConvertAll(e => e.ConvertToDTO());
+            _categoryRepository.Save();
             return result;
         }
         public CategoryDTO GetById(int id)
         {
-            var category = categoryRepository.GetById(id);
+            var category = _categoryRepository.GetById(id);
             if (category == null)
             {
                 throw new NotFoundException();
@@ -38,17 +38,13 @@ namespace TimeSheet.Service
         }
         public CategoryDTO Insert(CategoryDTO categoryDTO)
         {
-            if (categoryDTO == null)
-            {
-                throw new ValidationException("Category must be provided");
-            }
             if (string.IsNullOrEmpty(categoryDTO.Name))
             {
                 throw new ValidationException("Name cannot be empty");
             }
             var dtoToEntity = new Category(categoryDTO);
-            var dbCategory = categoryRepository.Insert(dtoToEntity);
-            categoryRepository.Save();
+            var dbCategory = _categoryRepository.Insert(dtoToEntity);
+            _categoryRepository.Save();
             var result = dbCategory.ConvertToDTO();
             return result;
         }
@@ -63,18 +59,18 @@ namespace TimeSheet.Service
                 throw new ValidationException("Name cannot be empty");
             }
             var dtoToEntity = new Category(categoryDTO);
-            categoryRepository.Update(id, dtoToEntity);
-            categoryRepository.Save();
+            _categoryRepository.Update(id, dtoToEntity);
+            _categoryRepository.Save();
         }
         public void Delete(int id)
         {
-            var category = categoryRepository.GetById(id);
+            var category = _categoryRepository.GetById(id);
             if (category == null)
             {
                 throw new NotFoundException();
             }
-            categoryRepository.Delete(id);
-            categoryRepository.Save();
+            _categoryRepository.Delete(id);
+            _categoryRepository.Save();
         }
     }
 }

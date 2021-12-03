@@ -4,7 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TimeSheet.Contract;
-using TimeSheet.Repository;
+using TimeSheet.Repository.Contract;
+using TimeSheet.Repository.Repositories;
 using TimeSheet.Service;
 
 namespace TimeSheet.API
@@ -21,12 +22,23 @@ namespace TimeSheet.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IClientService, ClientService>();
-            //services.AddDbContext<TimeSheetDbContext>(options =>
-            //{
-            //    options.UseSqlServer(
-            //        @"Server=DESKTOP-R0IITTI;Database=TimeSheet;Trusted_Connection=True;");
-            //});
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IClientService, ClientService>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<IRoleRepository, RoleRepository>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITimeSheetEntryRepository, TimeSheetEntryRepository>();
+            services.AddScoped<ITimeSheetEntryService, TimeSheetEntryService>();
+            services.AddScoped<IUserOnProjectRepository, UserOnProjectRepository>();
+            services.AddAuthorization();
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

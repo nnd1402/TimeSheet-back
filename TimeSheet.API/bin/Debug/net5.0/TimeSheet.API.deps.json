@@ -35,6 +35,8 @@
         "dependencies": {
           "EntityFramework": "6.4.4",
           "TimeSheet.Contract": "1.0.0",
+          "TimeSheet.Repository": "1.0.0",
+          "TimeSheet.Repository.Contract": "1.0.0",
           "TimeSheet.Service": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "5.0.0.0",

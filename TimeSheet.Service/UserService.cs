@@ -4,6 +4,7 @@ using System.Linq;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
+using TimeSheet.Repository.Contract;
 using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
@@ -11,24 +12,23 @@ namespace TimeSheet.Service
 {
     public class UserService : IUserService
     {
-        private readonly UserRepository userRepository;
+        private readonly IUserRepository _userRepository;
 
-        public UserService(UserRepository userRepository)
+        public UserService(IUserRepository userRepository)
         {
-            this.userRepository = userRepository;
+            this._userRepository = userRepository;
         }
 
         public IEnumerable<UserDTO> GetAll()
         {
-            var users = userRepository.GetAll();
-            var insertedEntities = userRepository.AddRange(users);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            userRepository.Save();
+            var users = _userRepository.GetAll();
+            var result = users.ToList().ConvertAll(e => e.ConvertToDTO());
+            _userRepository.Save();
             return result;
         }
         public UserDTO GetById(int id)
         {
-            var user = userRepository.GetById(id);
+            var user = _userRepository.GetById(id);
             if (user == null)
             {
                 throw new NullReferenceException();
@@ -52,8 +52,8 @@ namespace TimeSheet.Service
                 throw new ValidationException("Email cannot be empty");
             }
             var dtoToEntity = new User(userDTO);
-            var dbUser = userRepository.Insert(dtoToEntity);
-            userRepository.Save();
+            var dbUser = _userRepository.Insert(dtoToEntity);
+            _userRepository.Save();
             var result = dbUser.ConvertToDTO();
             return result;
         }
@@ -72,18 +72,18 @@ namespace TimeSheet.Service
                 throw new ValidationException("Email cannot be empty");
             }
             var dtoToEntity = new User(userDTO);
-            userRepository.Update(id, dtoToEntity);
-            userRepository.Save();
+            _userRepository.Update(id, dtoToEntity);
+            _userRepository.Save();
         }
         public void Delete(int id)
         {
-            var user = userRepository.GetById(id);
+            var user = _userRepository.GetById(id);
             if (user == null)
             {
                 throw new NotFoundException();
             }
-            userRepository.Delete(id);
-            userRepository.Save();
+            _userRepository.Delete(id);
+            _userRepository.Save();
         }
     }
 }

@@ -10,7 +10,6 @@ C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\TimeShee
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\TimeSheet.Console.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\ref\TimeSheet.Console.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\TimeSheet.Console.pdb
-C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\EntityFramework.SqlServer.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\EntityFramework.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\Microsoft.Win32.SystemEvents.dll
@@ -46,3 +45,5 @@ C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\obj\Debug\net5.0\TimeShee
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\obj\Debug\net5.0\ref\TimeSheet.Console.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\obj\Debug\net5.0\TimeSheet.Console.pdb
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\obj\Debug\net5.0\TimeSheet.Console.genruntimeconfig.cache
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\TimeSheet.Contract.dll
+C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Console\bin\Debug\net5.0\TimeSheet.Contract.pdb

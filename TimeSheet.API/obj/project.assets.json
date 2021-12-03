@@ -1132,6 +1132,8 @@
     "net5.0": [
       "EntityFramework >= 6.4.4",
       "TimeSheet.Contract >= 1.0.0",
+      "TimeSheet.Repository >= 1.0.0",
+      "TimeSheet.Repository.Contract >= 1.0.0",
       "TimeSheet.Service >= 1.0.0"
     ]
   },
@@ -1164,6 +1166,12 @@
           "projectReferences": {
             "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj": {
               "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Contract\\TimeSheet.Contract.csproj"
+            },
+            "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository.Contract\\TimeSheet.Repository.Contract.csproj": {
+              "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository.Contract\\TimeSheet.Repository.Contract.csproj"
+            },
+            "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj": {
+              "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj"
             },
             "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj": {
               "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj"

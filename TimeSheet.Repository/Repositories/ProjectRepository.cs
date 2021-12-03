@@ -5,8 +5,8 @@ namespace TimeSheet.Repository.Repositories
 {
     public class ProjectRepository : GenericRepository<Project>, IProjectRepository
     {
-        public ProjectRepository(TimeSheetDbContext context) : base(context)
-        {
-        }
+        //public ProjectRepository(TimeSheetDbContext context) : base(context)
+        //{
+        //}
     }
 }

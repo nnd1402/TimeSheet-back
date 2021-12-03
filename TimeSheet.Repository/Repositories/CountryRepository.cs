@@ -5,9 +5,9 @@ namespace TimeSheet.Repository.Repositories
 {
     public class CountryRepository : GenericRepository<Country>, ICountryRepository
     {
-        public CountryRepository(TimeSheetDbContext context) : base(context)
-        {
+        //public CountryRepository(TimeSheetDbContext context) : base(context)
+        //{
             
-        }
+        //}
     }
 }

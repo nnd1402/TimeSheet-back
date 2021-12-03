@@ -1,73 +1,85 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
+﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
+using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.API.Controllers
 {
-    [Route("api/clients")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase
     {
-        private readonly IClientService clientService;
+        private readonly IClientService _clientService;
 
-        public ClientsController(IClientService IclientService)
+        public ClientsController(IClientService clientService)
         {
-            clientService = IclientService;
+            _clientService = clientService;
         }
 
         [HttpGet]
-        [Route("api/clients")]
         public IActionResult GetClients()
         {
-            return Ok(clientService.GetAll());
+            return Ok(_clientService.GetAll());
         }
 
         [HttpGet]
-        [Route("api/clients/{id}")]
+        [Route("{id}")]
         public IActionResult GetClient(int id)
         {
-            var existingClient = clientService.GetById(id);
-            if(existingClient != null)
+            try
             {
-                return Ok(clientService.GetById(id));
+                return Ok(_clientService.GetById(id));
             }
-            return NotFound($"Client with the Id: {id} was not found");
+            catch (NotFoundException)
+            {
+                return NotFound($"Client with the Id: {id} was not found");
+            }
         }
 
         [HttpPost]
-        [Route("api/clients")]
         public ActionResult AddClient(ClientDTO clientDTO)
         {
-            clientService.Insert(clientDTO);
-            return Created(new Uri(Request.GetEncodedUrl() + "/" + clientDTO.Id), clientDTO);
+            try
+            {
+                var insertedClient = _clientService.Insert(clientDTO);
+                return Created(new Uri(Request.GetEncodedUrl() + "/" + insertedClient.Id), insertedClient);
+            }
+            catch(ValidationException ex)
+            {
+                return BadRequest($"Validation error: {ex.Message}");
+            }
         }
 
         [HttpDelete]
-        [Route("api/clients/{id}")]
+        [Route("{id}")]
         public ActionResult DeleteClient(int id)
         {
-            var existingClient = clientService.GetById(id);
-            if(existingClient != null)
+            try
             {
-                clientService.Delete(id);
+                _clientService.Delete(id);
                 return Ok();
             }
-            return NotFound($"Client with the Id: {id} was not found");
+            catch (NotFoundException)
+            {
+                return NotFound($"Client with the Id: {id} was not found");
+            }
         }
 
         [HttpPut]
-        [Route("api/clients/{id}")]
+        [Route("{id}")]
         public ActionResult EditClient(int id, ClientDTO clientDTO)
         {
-            var existingClient = clientService.GetById(id);
-            if (existingClient != null)
+            try
             {
-                clientService.Update(id, clientDTO);
+                _clientService.Update(id, clientDTO);
+                return Ok(clientDTO);
             }
-            return Ok(clientDTO);
+            catch (ValidationException ex)
+            {
+                return BadRequest($"Validation error: {ex.Message}");
+            }
         }
     }
 }

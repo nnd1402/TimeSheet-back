@@ -11,17 +11,25 @@ namespace TimeSheet.Repository.Repositories
         internal TimeSheetDbContext Context { get; set; }
         protected DbSet<TEntity> dbSet;
 
-        public GenericRepository(TimeSheetDbContext context)
+        public GenericRepository()
         {
-               this.Context = context;
-               this.dbSet = context.Set<TEntity>();
+            this.Context = new TimeSheetDbContext();
+            this.dbSet = Context.Set<TEntity>();
         }
+        //public GenericRepository(TimeSheetDbContext context)
+        //{
+        //    this.Context = context;
+        //    this.dbSet = context.Set<TEntity>();
+        //}
 
         public IEnumerable<TEntity> GetAll()
         {
             return dbSet.ToList();
         }
-     
+        public TEntity GetById<TId>(TId id1, TId id2)
+        {
+            return dbSet.Find(id1, id2);
+        }
         public TEntity GetById<TId>(TId id)
         {
             return dbSet.Find(id);
@@ -51,7 +59,7 @@ namespace TimeSheet.Repository.Repositories
         }
         public IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities)
         {
-           return dbSet.AddRange(entities);
+            return dbSet.AddRange(entities);
         }
         public void RemoveRange(IEnumerable<TEntity> entities)
         {

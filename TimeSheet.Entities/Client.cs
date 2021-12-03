@@ -19,6 +19,11 @@ namespace TimeSheet.Entities
 
         public ICollection<Project> Projects { get; set; }
 
+        public Client()
+        {
+
+        }
+
         public ClientDTO ConvertToDTO()
         {
             return new ClientDTO

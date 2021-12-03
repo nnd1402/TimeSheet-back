@@ -4,6 +4,7 @@ using System.Linq;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
+using TimeSheet.Repository.Contract;
 using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
@@ -11,24 +12,23 @@ namespace TimeSheet.Service
 {
     public class RoleService : IRoleService
     {
-        private readonly RoleRepository roleRepository;
+        private readonly IRoleRepository _roleRepository;
 
-        public RoleService(RoleRepository roleRepository)
+        public RoleService(IRoleRepository roleRepository)
         {
-            this.roleRepository = roleRepository;
+            this._roleRepository = roleRepository;
         }
 
         public IEnumerable<RoleDTO> GetAll()
         {
-            var roles = roleRepository.GetAll();
-            var insertedEntities = roleRepository.AddRange(roles);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            roleRepository.Save();
+            var roles = _roleRepository.GetAll();
+            var result = roles.ToList().ConvertAll(e => e.ConvertToDTO());
+            _roleRepository.Save();
             return result;
         }
         public RoleDTO GetById(int id)
         {
-            var role = roleRepository.GetById(id);
+            var role = _roleRepository.GetById(id);
             if (role == null)
             {
                 throw new NotFoundException();
@@ -44,8 +44,8 @@ namespace TimeSheet.Service
                 throw new ValidationException("Name cannot be empty");
             }
             var dtoToEntity = new Role(roleDTO);
-            var dbRole = roleRepository.Insert(dtoToEntity);
-            roleRepository.Save();
+            var dbRole = _roleRepository.Insert(dtoToEntity);
+            _roleRepository.Save();
             var result = dbRole.ConvertToDTO();
             return result;
         }
@@ -56,18 +56,18 @@ namespace TimeSheet.Service
                 throw new ValidationException("Name cannot be empty");
             }
             var dtoToEntity = new Role(roleDTO);
-            roleRepository.Update(id, dtoToEntity);
-            roleRepository.Save();
+            _roleRepository.Update(id, dtoToEntity);
+            _roleRepository.Save();
         }
         public void Delete(int id)
         {
-            var role = roleRepository.GetById(id);
+            var role = _roleRepository.GetById(id);
             if (role == null)
             {
                 throw new NullReferenceException();
             }
-            roleRepository.Delete(id);
-            roleRepository.Save();
+            _roleRepository.Delete(id);
+            _roleRepository.Save();
         }
     }
 }

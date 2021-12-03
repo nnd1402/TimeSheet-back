@@ -10,6 +10,11 @@ namespace TimeSheet.Entities
 
         public ICollection<TimeSheetEntry> TimeSheetEntries { get; set; }
 
+        public Category()
+        {
+
+        }
+
         public CategoryDTO ConvertToDTO()
         {
             return new CategoryDTO

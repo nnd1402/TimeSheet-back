@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TimeSheet.Contract\TimeSheet.Contract.csproj" />
+    <ProjectReference Include="..\TimeSheet.Repository.Contract\TimeSheet.Repository.Contract.csproj" />
+    <ProjectReference Include="..\TimeSheet.Repository\TimeSheet.Repository.csproj" />
     <ProjectReference Include="..\TimeSheet.Service\TimeSheet.Service.csproj" />
   </ItemGroup>
 

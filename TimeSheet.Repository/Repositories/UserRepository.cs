@@ -7,11 +7,8 @@ namespace TimeSheet.Repository.Repositories
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
-       
-        public UserRepository(TimeSheetDbContext context) : base(context)
-        {         
-        }
-
-        
+        //public UserRepository(TimeSheetDbContext context) : base(context)
+        //{         
+        //}
     }
 }

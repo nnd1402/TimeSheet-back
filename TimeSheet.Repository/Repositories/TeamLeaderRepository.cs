@@ -5,8 +5,8 @@ namespace TimeSheet.Repository.Repositories
 {
     public class TeamLeaderRepository : GenericRepository<TeamLeader>, ITeamLeaderRepository
     {
-        public TeamLeaderRepository(TimeSheetDbContext context) : base(context)
-        {
-        }
+        //public TeamLeaderRepository(TimeSheetDbContext context) : base(context)
+        //{
+        //}
     }
 }

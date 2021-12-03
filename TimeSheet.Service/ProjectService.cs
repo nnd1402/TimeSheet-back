@@ -3,6 +3,7 @@ using System.Linq;
 using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
+using TimeSheet.Repository.Contract;
 using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
@@ -10,9 +11,9 @@ namespace TimeSheet.Service
 {
     public class ProjectService : IProjectService
     {
-        private readonly ProjectRepository projectRepository;
+        private readonly IProjectRepository projectRepository;
 
-        public ProjectService(ProjectRepository projectRepository)
+        public ProjectService(IProjectRepository projectRepository)
         {
             this.projectRepository = projectRepository;
         }
@@ -20,8 +21,7 @@ namespace TimeSheet.Service
         public IEnumerable<ProjectDTO> GetAll()
         {
             var projects = projectRepository.GetAll();
-            var insertedEntities = projectRepository.AddRange(projects);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
+            var result = projects.ToList().ConvertAll(e => e.ConvertToDTO());
             projectRepository.Save();
             return result;
         }

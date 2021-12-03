@@ -6,31 +6,32 @@ using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 using System.Linq;
 using TimeSheet.Contract;
+using TimeSheet.Repository.Contract;
 
 namespace TimeSheet.Service
 {
     public class TimeSheetEntryService : ITimeSheetEntryService
     {
-        private readonly TimeSheetEntryRepository timeSheetEntryRepository;
-        private readonly UserOnProjectRepository userOnProjectRepository;
+        private readonly ITimeSheetEntryRepository _timeSheetEntryRepository;
+        private readonly IUserOnProjectRepository _userOnProjectRepository;
 
-        public TimeSheetEntryService(TimeSheetEntryRepository timeSheetEntryRepository)
+        public TimeSheetEntryService(ITimeSheetEntryRepository timeSheetEntryRepository, IUserOnProjectRepository userOnProjectRepository)
         {
-            this.timeSheetEntryRepository = timeSheetEntryRepository;
+            this._timeSheetEntryRepository = timeSheetEntryRepository;
+            this._userOnProjectRepository = userOnProjectRepository;
         }
 
         public IEnumerable<TimeSheetEntryDTO> GetAll()
         {
-            var entries = timeSheetEntryRepository.GetAll();
-            var insertedEntities = timeSheetEntryRepository.AddRange(entries);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            timeSheetEntryRepository.Save();
+            var entries = _timeSheetEntryRepository.GetAll();
+            var result = entries.ToList().ConvertAll(e => e.ConvertToDTO());
+            _timeSheetEntryRepository.Save();
             return result;
         }
 
         public TimeSheetEntryDTO GetById(int id)
         {
-            var entry = timeSheetEntryRepository.GetById(id);
+            var entry = _timeSheetEntryRepository.GetById(id);
             if (entry == null)
             {
                 throw new NotFoundException();
@@ -45,16 +46,16 @@ namespace TimeSheet.Service
             ICollection<TimeSheetEntryDTO> results = new List<TimeSheetEntryDTO>();
             foreach (TimeSheetEntryDTO entryDTO in entries)
             {
-                var userOnProject = userOnProjectRepository.GetById(new int[] { entryDTO.UserId, entryDTO.ProjectId });
+                var userOnProject = _userOnProjectRepository.GetById( entryDTO.UserId, entryDTO.ProjectId );
                 if (userOnProject == null)
                 {
                     throw new ValidationException("User is not assigned to this project");
                 }
             }
             var entities = entries.ToList().ConvertAll(dto => new TimeSheetEntry(dto));
-            var insertedEntities = timeSheetEntryRepository.AddRange(entities);
+            var insertedEntities = _timeSheetEntryRepository.AddRange(entities);
             var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
-            timeSheetEntryRepository.Save();
+            _timeSheetEntryRepository.Save();
             return result;
         }
 
@@ -62,29 +63,36 @@ namespace TimeSheet.Service
         {
             foreach (TimeSheetEntryDTO entryDTO in entries)
             {
-                var userOnProject = userOnProjectRepository.GetById(new int[] { entryDTO.UserId, entryDTO.ProjectId });
+                var userOnProject = _userOnProjectRepository.GetById(new int[] { entryDTO.UserId, entryDTO.ProjectId });
                 if (userOnProject == null)
                 {
                     throw new ValidationException("User is not assigned to this project");
                 }
             }
-            var entriesByDate = timeSheetEntryRepository.Search(x => x.Date == date);
-            timeSheetEntryRepository.RemoveRange(entriesByDate);
+            var entriesByDate = _timeSheetEntryRepository.Search(x => x.Date == date);
+            _timeSheetEntryRepository.RemoveRange(entriesByDate);
 
             var entities = entries.ToList().ConvertAll(dto => new TimeSheetEntry(dto));
-            timeSheetEntryRepository.AddRange(entities);
-            timeSheetEntryRepository.Save();
+            _timeSheetEntryRepository.AddRange(entities);
+            _timeSheetEntryRepository.Save();
         }
 
         public void Delete(int id)
         {
-            var entry = timeSheetEntryRepository.GetById(id);
+            var entry = _timeSheetEntryRepository.GetById(id);
             if (entry == null)
             {
                 throw new NotFoundException();
             }
-            timeSheetEntryRepository.Delete(id);
-            timeSheetEntryRepository.Save();
+            _timeSheetEntryRepository.Delete(id);
+            _timeSheetEntryRepository.Save();
+        }
+
+        public IEnumerable<TimeSheetEntryDTO> GetByDate(DateTime date)
+        {
+            var entriesByDate = _timeSheetEntryRepository.Search(x => x.Date == date);
+            var result = entriesByDate.ToList().ConvertAll(e => e.ConvertToDTO());
+            return result;
         }
     }
 }

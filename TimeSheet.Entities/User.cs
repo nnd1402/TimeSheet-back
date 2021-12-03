@@ -26,6 +26,11 @@ namespace TimeSheet.Entities
 
         public ICollection<UserOnProject> UsersOnProjects { get; set; }
 
+        public User()
+        {
+
+        }
+
         public UserDTO ConvertToDTO()
         {
             return new UserDTO
@@ -34,20 +39,17 @@ namespace TimeSheet.Entities
                 Name = this.Name,
                 Username = this.Username,
                 Email = this.Email,
-                Password = this.Password,
                 HoursPerWeek = this.HoursPerWeek,
                 Status = this.Status,
                 RoleId = this.RoleId
             };
         }
-
-        public User (UserDTO userDTO)
+        public User(UserDTO userDTO)
         {
             Id = userDTO.Id;
             Name = userDTO.Name;
             Username = userDTO.Username;
             Email = userDTO.Email;
-            Password = userDTO.Password;
             HoursPerWeek = userDTO.HoursPerWeek;
             Status = userDTO.Status;
             RoleId = userDTO.RoleId;

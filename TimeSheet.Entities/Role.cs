@@ -10,6 +10,11 @@ namespace TimeSheet.Entities
 
         public ICollection<User> Users { get; set; }
 
+        public Role()
+        {
+
+        }
+
         public RoleDTO ConvertToDTO()
         {
             return new RoleDTO
