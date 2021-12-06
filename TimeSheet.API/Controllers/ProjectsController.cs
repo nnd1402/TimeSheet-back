@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
+﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using TimeSheet.Contract;
@@ -46,7 +45,7 @@ namespace TimeSheet.API.Controllers
             try
             {
                 var insertedProject = _projectService.Insert(projectDTO);
-                return Created(new Uri(Request.GetEncodedUrl() + "/" + insertedProject.Id), insertedProject);
+                return Ok(insertedProject);
             }
             catch (ValidationException ex)
             {

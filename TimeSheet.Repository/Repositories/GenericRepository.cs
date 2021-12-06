@@ -49,6 +49,11 @@ namespace TimeSheet.Repository.Repositories
             TEntity existing = dbSet.Find(id);
             dbSet.Remove(existing);
         }
+        public void Delete(int id1, int id2)
+        {
+            TEntity existing = dbSet.Find(id1, id2);
+            dbSet.Remove(existing);
+        }
         public void Save()
         {
             Context.SaveChanges();

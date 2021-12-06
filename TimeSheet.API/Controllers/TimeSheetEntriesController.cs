@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Extensions;
+﻿using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,6 @@ namespace TimeSheet.API.Controllers
             this._timeSheetEntryService = timeSheetEntryService;
         }
 
-        //wrapper za drugi tip: Nullable<DateTime>
         [HttpGet]
         public ActionResult GetEntries([FromQuery(Name = "date")] DateTime? date)
         {
@@ -31,28 +29,13 @@ namespace TimeSheet.API.Controllers
             return Ok(_timeSheetEntryService.GetAll());
         }
 
-
-        [HttpGet]
-        [Route("{id}")]
-        public IActionResult GetEntry(int id)
-        {
-            try
-            {
-                return Ok(_timeSheetEntryService.GetById(id));
-            }
-            catch (NotFoundException)
-            {
-                return NotFound($"Timesheet entry with the Id: {id} was not found");
-            }
-        }
-
         [HttpPost]
         public IActionResult InsertMany(IEnumerable<TimeSheetEntryDTO> entries)
         {
             try
             {
                 var insertedEntries = _timeSheetEntryService.InsertMany(entries);
-                return Created(new Uri(Request.GetEncodedUrl()), insertedEntries);
+                return Ok(insertedEntries);
             }
             catch(ValidationException ex)
             {
@@ -71,7 +54,7 @@ namespace TimeSheet.API.Controllers
             }
             catch (NotFoundException)
             {
-                return NotFound($"Role with the Id: {id} was not found");
+                return NotFound($"Timesheet entry with the Id: {id} was not found");
             }
         }
         [HttpPut]

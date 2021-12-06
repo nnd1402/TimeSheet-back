@@ -13,10 +13,12 @@ namespace TimeSheet.Service
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IRoleRepository roleRepository)
         {
             this._userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
         public IEnumerable<UserDTO> GetAll()
@@ -51,6 +53,11 @@ namespace TimeSheet.Service
             {
                 throw new ValidationException("Email cannot be empty");
             }
+            var role = _roleRepository.GetById(userDTO.RoleId);
+            if (role == null)
+            {
+                throw new ValidationException("Role does not exist");
+            }
             var dtoToEntity = new User(userDTO);
             var dbUser = _userRepository.Insert(dtoToEntity);
             _userRepository.Save();
@@ -70,6 +77,11 @@ namespace TimeSheet.Service
             if (string.IsNullOrEmpty(userDTO.Email))
             {
                 throw new ValidationException("Email cannot be empty");
+            }
+            var role = _roleRepository.GetById(userDTO.RoleId);
+            if (role == null)
+            {
+                throw new ValidationException("Role does not exist");
             }
             var dtoToEntity = new User(userDTO);
             _userRepository.Update(id, dtoToEntity);

@@ -4,7 +4,6 @@ using TimeSheet.Contract;
 using TimeSheet.DTO;
 using TimeSheet.Entities;
 using TimeSheet.Repository.Contract;
-using TimeSheet.Repository.Repositories;
 using TimeSheet.Service.Exceptions;
 
 namespace TimeSheet.Service
@@ -12,10 +11,12 @@ namespace TimeSheet.Service
     public class ClientService : IClientService
     {
         private readonly IClientRepository _clientRepository;
+        private readonly ICountryRepository _countryRepository;
 
-        public ClientService(IClientRepository clientRepository)
+        public ClientService(IClientRepository clientRepository, ICountryRepository countryRepository)
         {
             this._clientRepository = clientRepository;
+            this._countryRepository = countryRepository;
         }
 
         public IEnumerable<ClientDTO> GetAll()
@@ -50,6 +51,16 @@ namespace TimeSheet.Service
             {
                 throw new ValidationException("City cannot be empty");
             }
+            var country = _countryRepository.GetById(clientDTO.CountryId);
+            if(country == null)
+            {
+                throw new ValidationException("Country does not exist");
+            }
+            var clientByName = _clientRepository.Search(c => c.Name == clientDTO.Name);
+            if (clientByName.Count() > 0)
+            {
+                throw new ValidationException("Client with that name already exists");
+            }
             var dtoToEntity = new Client(clientDTO);
             var dbClient = _clientRepository.Insert(dtoToEntity);
             _clientRepository.Save();
@@ -74,6 +85,16 @@ namespace TimeSheet.Service
             if (string.IsNullOrEmpty(clientDTO.City))
             {
                 throw new ValidationException("City cannot be empty");
+            }
+            var country = _countryRepository.GetById(clientDTO.CountryId);
+            if (country == null)
+            {
+                throw new ValidationException("Country does not exist");
+            }
+            var clientByName = _clientRepository.Search(c => c.Name == clientDTO.Name);
+            if (clientByName.Count() > 0)
+            {
+                throw new ValidationException("Client with that name already exists");
             }
             var dtoToEntity = new Client(clientDTO);
             _clientRepository.Update(id, dtoToEntity);

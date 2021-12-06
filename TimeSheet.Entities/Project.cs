@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using TimeSheet.DTO;
 
 namespace TimeSheet.Entities
@@ -8,14 +9,10 @@ namespace TimeSheet.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
         public string Description { get; set; }
-
         public int ClientId { get; set; }
-
         [ForeignKey("ClientId")]
         public Client Client { get; set; }
-
         public ICollection<UserOnProject> UsersOnProjects { get; set; }
 
         public Project()
@@ -23,14 +20,16 @@ namespace TimeSheet.Entities
 
         }
 
-        public ProjectDTO ConvertToDTO()
+        public ProjectDTO ConvertToDTO(TeamLeader lead, IEnumerable<UserOnProject> users)
         {
             return new ProjectDTO
             {
                 Id = this.Id,
                 Name = this.Name,
                 Description = this.Description,
-                ClientId = this.ClientId
+                ClientId = this.ClientId,
+                LeadUserId = lead.UserId,
+                UserIds = users.ToList().ConvertAll(u => u.UserId)
             };
         }
 

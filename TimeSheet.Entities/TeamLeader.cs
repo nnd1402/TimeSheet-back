@@ -10,7 +10,17 @@ namespace TimeSheet.Entities
 
         public int UserId { get; set; }
 
+        public TeamLeader()
+        {
+
+        }
+
         [ForeignKey("UserId, ProjectId")]
         public UserOnProject UserOnProject { get; set; }
+        public TeamLeader(int UserId, int ProjectId)
+        {
+            this.UserId = UserId;
+            this.ProjectId = ProjectId;
+        }
     }
 }

@@ -14,11 +14,13 @@ namespace TimeSheet.Service
     {
         private readonly ITimeSheetEntryRepository _timeSheetEntryRepository;
         private readonly IUserOnProjectRepository _userOnProjectRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public TimeSheetEntryService(ITimeSheetEntryRepository timeSheetEntryRepository, IUserOnProjectRepository userOnProjectRepository)
+        public TimeSheetEntryService(ITimeSheetEntryRepository timeSheetEntryRepository, IUserOnProjectRepository userOnProjectRepository, ICategoryRepository categoryRepository)
         {
             this._timeSheetEntryRepository = timeSheetEntryRepository;
             this._userOnProjectRepository = userOnProjectRepository;
+            this._categoryRepository = categoryRepository;
         }
 
         public IEnumerable<TimeSheetEntryDTO> GetAll()
@@ -51,11 +53,16 @@ namespace TimeSheet.Service
                 {
                     throw new ValidationException("User is not assigned to this project");
                 }
+                var category = _categoryRepository.GetById(entryDTO.CategoryId);
+                if (category == null)
+                {
+                    throw new ValidationException("Category does not exist");
+                }
             }
             var entities = entries.ToList().ConvertAll(dto => new TimeSheetEntry(dto));
             var insertedEntities = _timeSheetEntryRepository.AddRange(entities);
-            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
             _timeSheetEntryRepository.Save();
+            var result = insertedEntities.ToList().ConvertAll(e => e.ConvertToDTO());
             return result;
         }
 
@@ -63,7 +70,7 @@ namespace TimeSheet.Service
         {
             foreach (TimeSheetEntryDTO entryDTO in entries)
             {
-                var userOnProject = _userOnProjectRepository.GetById(new int[] { entryDTO.UserId, entryDTO.ProjectId });
+                var userOnProject = _userOnProjectRepository.GetById(entryDTO.UserId, entryDTO.ProjectId);
                 if (userOnProject == null)
                 {
                     throw new ValidationException("User is not assigned to this project");
@@ -71,7 +78,7 @@ namespace TimeSheet.Service
             }
             var entriesByDate = _timeSheetEntryRepository.Search(x => x.Date == date);
             _timeSheetEntryRepository.RemoveRange(entriesByDate);
-
+            _timeSheetEntryRepository.Save();
             var entities = entries.ToList().ConvertAll(dto => new TimeSheetEntry(dto));
             _timeSheetEntryRepository.AddRange(entities);
             _timeSheetEntryRepository.Save();

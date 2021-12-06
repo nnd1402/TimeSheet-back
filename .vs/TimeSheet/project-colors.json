@@ -35,7 +35,17 @@
       "ProjectGuid": "72fd0c60-8bcc-4302-81c0-a8fbd14ff73e",
       "DisplayName": "TimeSheet.Repository.Contract",
       "ColorIndex": 5
+    },
+    "f307d0eb-073f-45eb-bbe9-54f08f1b1e1b": {
+      "ProjectGuid": "f307d0eb-073f-45eb-bbe9-54f08f1b1e1b",
+      "DisplayName": "TimeSheet.Contract",
+      "ColorIndex": 6
+    },
+    "175d1b4f-5f4f-4c4f-b715-99d74c415d56": {
+      "ProjectGuid": "175d1b4f-5f4f-4c4f-b715-99d74c415d56",
+      "DisplayName": "TimeSheet.API",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 8
 }

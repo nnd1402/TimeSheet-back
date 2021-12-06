@@ -22,21 +22,22 @@ namespace TimeSheet.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IClientRepository, ClientRepository>();
-            services.AddScoped<IClientService, ClientService>();
-            services.AddScoped<ICountryRepository, CountryRepository>();
-            services.AddScoped<ICountryService, CountryService>();
-            services.AddScoped<IRoleRepository, RoleRepository>();
-            services.AddScoped<IRoleService, RoleService>();
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IProjectRepository, ProjectRepository>();
-            services.AddScoped<IProjectService, ProjectService>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<ITimeSheetEntryRepository, TimeSheetEntryRepository>();
-            services.AddScoped<ITimeSheetEntryService, TimeSheetEntryService>();
-            services.AddScoped<IUserOnProjectRepository, UserOnProjectRepository>();
+            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IClientService, ClientService>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<ICountryService, CountryService>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IProjectRepository, ProjectRepository>();
+            services.AddTransient<IProjectService, ProjectService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ITimeSheetEntryRepository, TimeSheetEntryRepository>();
+            services.AddTransient<ITimeSheetEntryService, TimeSheetEntryService>();
+            services.AddTransient<IUserOnProjectRepository, UserOnProjectRepository>();
+            services.AddTransient<ITeamLeaderRepository, TeamLeaderRepository>();
             services.AddAuthorization();
             services.AddControllers();
         }

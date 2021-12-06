@@ -1,4 +1,6 @@
-﻿using TimeSheet.Entities;
+﻿using System.Data.Entity;
+using TimeSheet.DTO;
+using TimeSheet.Entities;
 using TimeSheet.Repository.Contract;
 
 namespace TimeSheet.Repository.Repositories

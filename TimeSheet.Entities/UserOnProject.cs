@@ -18,5 +18,16 @@ namespace TimeSheet.Entities
         public int ProjectId { get; set; }
        
         public Project Project { get; set; }
+
+        public UserOnProject()
+        {
+
+        }
+
+        public UserOnProject(int UserId, int ProjectId)
+        {
+            this.UserId = UserId;
+            this.ProjectId = ProjectId;
+        }
     }
 }

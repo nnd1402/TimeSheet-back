@@ -11,6 +11,7 @@ namespace TimeSheet.Repository.Contract
         TEntity Insert(TEntity obj);
         void Update(int id, TEntity obj);
         void Delete(int obj);
+        void Delete (int id1, int id2);
         void Save();
         IEnumerable<TEntity> Search(Func<TEntity, bool> predicate);
         IEnumerable<TEntity> AddRange(IEnumerable<TEntity> entities);

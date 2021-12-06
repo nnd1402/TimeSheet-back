@@ -18,7 +18,6 @@ namespace TimeSheet.API.Controllers
             this._userService = userService;
         }
 
-
         [HttpGet]
         public IActionResult GetUsers()
         {
@@ -46,7 +45,7 @@ namespace TimeSheet.API.Controllers
             try
             {
                 var insertedUser = _userService.Insert(userDTO);
-                return Created(new Uri(Request.GetEncodedUrl() + "/" + insertedUser.Id), insertedUser);
+                return Ok(insertedUser);
             }
             catch (ValidationException ex)
             {

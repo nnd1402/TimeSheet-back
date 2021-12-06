@@ -44,7 +44,7 @@ namespace TimeSheet.API.Controllers
             try
             {
                 var insertedClient = _clientService.Insert(clientDTO);
-                return Created(new Uri(Request.GetEncodedUrl() + "/" + insertedClient.Id), insertedClient);
+                return Ok(insertedClient);
             }
             catch(ValidationException ex)
             {
