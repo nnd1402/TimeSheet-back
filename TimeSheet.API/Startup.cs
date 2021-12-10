@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,6 +39,8 @@ namespace TimeSheet.API
             services.AddTransient<ITimeSheetEntryService, TimeSheetEntryService>();
             services.AddTransient<IUserOnProjectRepository, UserOnProjectRepository>();
             services.AddTransient<ITeamLeaderRepository, TeamLeaderRepository>();
+            services.AddCors();
+          
             services.AddAuthorization();
             services.AddControllers();
         }
@@ -53,6 +56,10 @@ namespace TimeSheet.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(
+            options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()
+            );
 
             app.UseEndpoints(endpoints =>
             {

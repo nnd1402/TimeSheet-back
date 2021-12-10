@@ -91,11 +91,7 @@ namespace TimeSheet.Service
             {
                 throw new ValidationException("Country does not exist");
             }
-            var clientByName = _clientRepository.Search(c => c.Name == clientDTO.Name);
-            if (clientByName.Count() > 0)
-            {
-                throw new ValidationException("Client with that name already exists");
-            }
+            
             var dtoToEntity = new Client(clientDTO);
             _clientRepository.Update(id, dtoToEntity);
             _clientRepository.Save();
