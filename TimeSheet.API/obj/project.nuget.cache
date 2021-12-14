@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8E2El4zd67Gj+KT3kAe1YagA3C+APvIh4au5I+QeB0IUY23cNCYL7wEf9dpF+ic2ku8FQHm5rpsMvH9c3u0kRA==",
+  "dgSpecHash": "466VNIlt3UJ5lM8n8hwHBbI/l64kpHmHI6f5pt+xSDNaslBCABZO30249lktR/MNHOHqJtBDo4zMCWd0oDr26A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.API\\TimeSheet.API.csproj",
+  "projectFilePath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.API\\TimeSheet.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nesa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",

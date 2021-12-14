@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CV+hSH1pSe73y3rcQio4o0bcC8rjMbqF/6rZZzydpX/QbeAGKizQE60UsZKclFk+rWfvmt9AHR1jUO/RLLigeQ==",
+  "dgSpecHash": "7VzoLHP0C0R8K78tMAxnxC8VN5m1tPGFuhNslz2ta9rxA+8T9vxv99wXIGW3vdg+9vLhkqGOblXPz7a6XWV0Ag==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj",
+  "projectFilePath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service\\TimeSheet.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nesa\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\nesa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

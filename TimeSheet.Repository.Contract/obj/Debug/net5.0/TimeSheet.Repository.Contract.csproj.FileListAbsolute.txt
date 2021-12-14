@@ -15,3 +15,20 @@ C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Repository.Contract\obj\Debug\net
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.pdb
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.dll
 C:\Users\nesa\source\repos\TimeSheet\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.pdb
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Repository.Contract.deps.json
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Repository.Contract.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\ref\TimeSheet.Repository.Contract.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Repository.Contract.pdb
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Entities.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Entities.pdb
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\bin\Debug\net5.0\TimeSheet.Service.Contract.pdb
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.csproj.AssemblyReference.cache
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.AssemblyInfoInputs.cache
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.AssemblyInfo.cs
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.csproj.CoreCompileInputs.cache
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.csproj.CopyComplete
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\ref\TimeSheet.Repository.Contract.dll
+C:\Users\nesa\Desktop\github vega\TimeSheet-back\TimeSheet.Repository.Contract\obj\Debug\net5.0\TimeSheet.Repository.Contract.pdb

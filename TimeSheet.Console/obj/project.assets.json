@@ -1140,11 +1140,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Console\\TimeSheet.Console.csproj",
+      "projectUniqueName": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Console\\TimeSheet.Console.csproj",
       "projectName": "TimeSheet.Console",
-      "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Console\\TimeSheet.Console.csproj",
+      "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Console\\TimeSheet.Console.csproj",
       "packagesPath": "C:\\Users\\nesa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Console\\obj\\",
+      "outputPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1161,11 +1161,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj": {
-              "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Repository\\TimeSheet.Repository.csproj"
+            "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Repository\\TimeSheet.Repository.csproj": {
+              "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Repository\\TimeSheet.Repository.csproj"
             },
-            "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj": {
-              "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service\\TimeSheet.Service.csproj"
+            "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service\\TimeSheet.Service.csproj": {
+              "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service\\TimeSheet.Service.csproj"
             }
           }
         }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\TimeSheet.Entities.csproj": {}
+    "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Entities\\TimeSheet.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\TimeSheet.Entities.csproj": {
+    "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Entities\\TimeSheet.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\TimeSheet.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Entities\\TimeSheet.Entities.csproj",
         "projectName": "TimeSheet.Entities",
-        "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\TimeSheet.Entities.csproj",
+        "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Entities\\TimeSheet.Entities.csproj",
         "packagesPath": "C:\\Users\\nesa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Entities\\obj\\",
+        "outputPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj": {
-                "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj"
+              "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj": {
+                "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj"
               }
             }
           }
@@ -62,14 +62,14 @@
         }
       }
     },
-    "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj": {
+    "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
+        "projectUniqueName": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
         "projectName": "TimeSheet.Service.Contract",
-        "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
+        "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
         "packagesPath": "C:\\Users\\nesa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\obj\\",
+        "outputPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nesa\\AppData\\Roaming\\NuGet\\NuGet.Config",

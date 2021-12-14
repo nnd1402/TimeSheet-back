@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
+      "projectUniqueName": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
       "projectName": "TimeSheet.Service.Contract",
-      "projectPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
+      "projectPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\TimeSheet.Service.Contract.csproj",
       "packagesPath": "C:\\Users\\nesa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nesa\\source\\repos\\TimeSheet\\TimeSheet.Service.Contract\\obj\\",
+      "outputPath": "C:\\Users\\nesa\\Desktop\\github vega\\TimeSheet-back\\TimeSheet.Service.Contract\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
