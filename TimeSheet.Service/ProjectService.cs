@@ -78,14 +78,22 @@ namespace TimeSheet.Service
             }
             var dtoToEntity = new Project(projectDTO);
             var dbProject = _projectRepository.Insert(dtoToEntity);
+            //sad mora save da dbProject.Id ne bude nula
+            _projectRepository.Save();
            
             var usersOnProject = projectDTO.UserIds.ToList().ConvertAll(uId => new UserOnProject(uId, dbProject.Id));
+            //ovde uspesno hvata ideve, ali User i Project budu null
             var dbUsersOnProject = _userOnProjectRepository.AddRange(usersOnProject);
-        
+            _userOnProjectRepository.Save();
+
+
             var teamLeader = new TeamLeader(projectDTO.LeadUserId, dbProject.Id);
+            
+            //ovde uspesno hvata ideve, UserOnProject bude null
             var dbTeamLeader = _teamLeaderRepository.Insert(teamLeader);
-            _projectRepository.Save();
+            _teamLeaderRepository.Save();
             var result = dbProject.ConvertToDTO(dbTeamLeader, dbUsersOnProject);
+            _projectRepository.Save();
             return result;
         }
         public void Update(int id, ProjectDTO projectDTO)

@@ -1,4 +1,8 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\TimeSheet.Service"
+  ],
+  "SelectedNode": "\\TimeSheet.Service\\ClientService.cs",
   "PreviewInSolutionExplorer": false
 }
