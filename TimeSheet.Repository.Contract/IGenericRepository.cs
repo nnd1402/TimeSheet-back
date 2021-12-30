@@ -8,6 +8,7 @@ namespace TimeSheet.Repository.Contract
         IEnumerable<TEntity> GetAll();
         TEntity GetById<TId>(TId id1, TId id2);
         TEntity GetById<TId>(TId id);
+        //TEntity GetByIdList<TId>(IEnumerable<TId> idList);
         TEntity Insert(TEntity obj);
         void Update(int id, TEntity obj);
         void Delete(int obj);

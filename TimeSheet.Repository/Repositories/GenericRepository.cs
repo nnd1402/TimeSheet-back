@@ -34,6 +34,10 @@ namespace TimeSheet.Repository.Repositories
         {
             return dbSet.Find(id);
         }
+        //public TEntity GetByIdList<TId>(IEnumerable<TId> ids)
+        //{
+        //    return dbSet.Find(ids);
+        //}
         public TEntity Insert(TEntity obj)
         {
             return dbSet.Add(obj);

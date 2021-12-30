@@ -14,13 +14,15 @@ namespace TimeSheet.Service
         private readonly IClientRepository _clientRepository;
         private readonly IUserOnProjectRepository _userOnProjectRepository;
         private readonly ITeamLeaderRepository _teamLeaderRepository;
+        private readonly IUserRepository _userRepository;
 
-        public ProjectService(IProjectRepository projectRepository, IClientRepository clientRepository, IUserOnProjectRepository userOnProjectRepository, ITeamLeaderRepository teamLeaderRepository)
+        public ProjectService(IProjectRepository projectRepository, IClientRepository clientRepository, IUserOnProjectRepository userOnProjectRepository, ITeamLeaderRepository teamLeaderRepository, IUserRepository userRepository)
         {
             this._projectRepository = projectRepository;
             this._clientRepository = clientRepository;
             this._userOnProjectRepository = userOnProjectRepository;
             this._teamLeaderRepository = teamLeaderRepository;
+            this._userRepository = userRepository;
         }
 
         public IEnumerable<ProjectDTO> GetAll()
@@ -71,6 +73,11 @@ namespace TimeSheet.Service
             {
                 throw new ValidationException("Client does not exist");
             }
+            //var user = _userRepository.GetByIdList(projectDTO.UserIds);
+            //if (user == null)
+            //{
+            //    throw new ValidationException("User does not exist");
+            //}
             var projectByName = _projectRepository.Search(l => l.Name == projectDTO.Name);
             if(projectByName.Count() > 0)
             {
